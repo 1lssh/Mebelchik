@@ -1,7 +1,17 @@
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 export const NavBtn = ({ setMenuActive, children, route }) => {
 	return (
-		<li onClick={() => setMenuActive(false)} className='nav-item'><Link className='link' to={route}>{children}</Link></li>
+		<li
+			onClick={() => setMenuActive(false)}
+			className='nav-item'
+		>
+			<NavLink
+				className={({ isActive }) => "link" + (isActive ? " activeLink" : "")}
+				to={route}
+			>
+				{children}
+			</NavLink>
+		</li>
 	)
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import BurgerIcon from './BurgerIcon'
+import CloseIcon from './CloseIcon'
 import { Logo } from './Logo'
 import { Nav } from './Nav'
 
@@ -10,24 +11,13 @@ function Header() {
 			<div className='header'>
 				<div className='logo'>
 					<Logo />
-					<div>
-						<div className="header-burger" onClick={() => setMenuActive(true)}>
-							<span className="burger-line burger-line_first"></span>
-							<span className="burger-line burger-line_second"></span>
-							<span className="burger-line burger-line_third"></span>
-						</div>
-					</div>
+					<BurgerIcon setMenuActive={setMenuActive} />
 				</div>
 			</div>
 			<div className='nav-wrapper'>
 				<nav className={menuActive ? 'nav nav-active' : 'nav'}>
 					<Nav setMenuActive={setMenuActive} />
-					<div className="nav-close" onClick={() => setMenuActive(false)}>
-						<span className="nav-close-line"></span>
-						<span className="nav-close-line"></span>
-					</div>
-					<div>
-					</div>
+					<CloseIcon setMenuActive={setMenuActive} />
 				</nav>
 			</div>
 		</>
